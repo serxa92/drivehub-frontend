@@ -1,4 +1,4 @@
-# DriveHub
+#  DriveHub
 
 A modern and responsive React application for browsing used cars through a custom REST API built with Node.js, Express and MongoDB.
 
@@ -16,7 +16,15 @@ DriveHub allows users to:
 - Contact the seller through a validated form
 
 ---
+## Screenshots
 
+| Home | Cars |
+|:----:|:-----------:|
+| <img src="public/cap1.png" width="450"> | <img src="public/cap2.png" width="450"> |
+
+| Favorites | Contact |
+|:---------:|:-------:|
+| <img src="public/cap4.png" width="450"> | <img src="public/cap5.png" width="450"> |
 
 # Tech Stack
 
@@ -58,47 +66,7 @@ DriveHub allows users to:
 
 ---
 
-# API Endpoints
 
-```http
-GET    /cars
-GET    /cars/:id
-GET    /cars/brand/:brand
-
-POST   /cars
-PUT    /cars/:id
-DELETE /cars/:id
-```
-
----
-
-# Installation
-
-Clone the repository
-
-```bash
-git clone https://github.com/serxa92/drivehub-frontend.git
-```
-
-Install dependencies
-
-```bash
-npm install
-```
-
-Create a `.env` file
-
-```env
-VITE_API_URL=http://localhost:8080
-```
-
-Run the project
-
-```bash
-npm run dev
-```
-
----
 
 
 # Author
