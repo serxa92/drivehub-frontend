@@ -4,6 +4,7 @@ import { getCarImage } from "../../utils/carImages";
 import { capitalize } from "../../utils/capitalize";
 import CarCard from "../../components/CarCard/CarCard";
 import Contact from "../Contact/Contact";
+import Loader from "../../components/Loader/Loader";
 import "./Home.css";
 
 const Home = () => {
@@ -11,11 +12,11 @@ const Home = () => {
   const { cars, loading, error } = useCars();
 
   if (loading) {
-    return <p style={{ padding: "2rem" }}>Loading cars...</p>;
+    return <Loader text={t.loadingCars} />;
   }
 
   if (error) {
-    return <p style={{ padding: "2rem" }}>{error}</p>;
+    return <Loader text={t.loadingCarsError} />;
   }
 
   return (
