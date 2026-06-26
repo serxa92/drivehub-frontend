@@ -5,10 +5,13 @@ import CarDetail from "./pages/CarDetail/CarDetail";
 import Contact from "./pages/Contact/Contact";
 import Favorites from "./pages/Favorites/Favorites";
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import ScrollToTop from "./utils/ScrollToTop";
 
 const App = () => {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
 
       <Routes>
@@ -18,6 +21,7 @@ const App = () => {
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/cars/:id" element={<CarDetail />} />
       </Routes>
+      <Footer />
     </>
   );
 };

@@ -135,8 +135,8 @@ const Home = () => {
 
           <article className="featured-card">
             <span>{t.featured}</span>
-            <h2>Volkswagen Golf GTI 35 Edition</h2>
-            <p>2011 · 160.000 km · 310 cv</p>
+            <h2>Porsche Panamera Turbo</h2>
+            <p>2019 · 60.000 km · 550 cv</p>
 
             <div className="featured-card__bottom">
               <strong>Available</strong>

@@ -1,16 +1,109 @@
-# React + Vite
+# DriveHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern and responsive React application for browsing used cars through a custom REST API built with Node.js, Express and MongoDB.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Preview
 
-## React Compiler
+DriveHub allows users to:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Browse available cars
+- View detailed information about each vehicle
+- Save favourite cars
+- Filter cars by different criteria
+- Switch between English and Spanish
+- Contact the seller through a validated form
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+
+# Tech Stack
+
+### Frontend
+
+<p>
+<img src="https://skillicons.dev/icons?i=react,vite,css" />
+<img src="https://raw.githubusercontent.com/react-hook-form/react-hook-form/master/docs/logo.png" width="75"/>
+</p>
+
+### Backend
+
+<p>
+<img src="https://skillicons.dev/icons?i=nodejs,express,mongodb" />
+</p>
+
+### Development Tools
+
+<p>
+<img src="https://skillicons.dev/icons?i=git,github,vscode,npm" />
+</p>
+
+---
+
+# React Concepts
+
+- Functional Components
+- React Router DOM
+- useState
+- useEffect
+- useMemo
+- Custom Hooks
+- Context API
+- Component Reusability
+- Local Storage
+- Controlled Forms
+- API Consumption
+- Responsive Design
+
+---
+
+# API Endpoints
+
+```http
+GET    /cars
+GET    /cars/:id
+GET    /cars/brand/:brand
+
+POST   /cars
+PUT    /cars/:id
+DELETE /cars/:id
+```
+
+---
+
+# Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/serxa92/drivehub-frontend.git
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Create a `.env` file
+
+```env
+VITE_API_URL=http://localhost:8080
+```
+
+Run the project
+
+```bash
+npm run dev
+```
+
+---
+
+
+# Author
+
+**Sergio Agulla**
+
+
+

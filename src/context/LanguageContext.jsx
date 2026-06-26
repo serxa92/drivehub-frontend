@@ -4,9 +4,9 @@ const LanguageContext = createContext();
 
 const translations = {
   en: {
-    navCars: "Cars",
-    navFavorites: "Favorites",
-    navContact: "Contact",
+    navCars: "CARS",
+    navFavorites: "FAVORITES",
+    navContact: "CONTACT",
 
     heroEyebrow: "Premium used cars",
     heroTitle: "Drive what you love",
@@ -91,12 +91,19 @@ const translations = {
     noResultsTitle: "No cars found",
     noResultsText:
       "Try changing your filters to discover more available vehicles.",
+    footerText: "Browse selected vehicles and find the right car for you.",
+
+    footerNavigation: "Navigation",
+
+    footerResources: "Resources",
+
+    footerRights: "All rights reserved.",
   },
 
   es: {
-    navCars: "Coches",
-    navFavorites: "Favoritos",
-    navContact: "Contacto",
+    navCars: "COCHES",
+    navFavorites: "FAVORITOS",
+    navContact: "CONTACTO",
 
     heroEyebrow: "Coches premium de ocasión",
     heroTitle: "Conduce lo que te apasiona",
@@ -181,6 +188,14 @@ const translations = {
     noResultsTitle: "No se encontraron coches",
     noResultsText:
       "Prueba a cambiar los filtros para descubrir más vehículos disponibles.",
+    footerText:
+      "Explora vehículos seleccionados y encuentra el coche adecuado para ti.",
+
+    footerNavigation: "Navegación",
+
+    footerResources: "Recursos",
+
+    footerRights: "Todos los derechos reservados.",
   },
 };
 

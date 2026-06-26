@@ -3,6 +3,7 @@ import { getCarImage } from "../../utils/carImages";
 import { capitalize } from "../../utils/capitalize";
 import { useFavorites } from "../../context/FavoritesContext";
 import { Link, useLocation } from "react-router-dom";
+import { memo } from "react";
 import "./CarCard.css";
 
 const CarCard = ({ car }) => {
@@ -53,4 +54,4 @@ const CarCard = ({ car }) => {
   );
 };
 
-export default CarCard;
+export default memo(CarCard);

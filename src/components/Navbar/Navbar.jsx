@@ -55,9 +55,16 @@ const Navbar = () => {
     <header className="navbar">
       <div className="navbar__inner">
         <NavLink to="/" className="navbar__brand" onClick={closeMenu}>
-          <span className="navbar__brand-mark">D</span>
-          <span>DriveHub</span>
-        </NavLink>
+  <img
+    className="navbar__logo"
+    src="/favicon.png"
+    alt="DriveHub"
+  />
+
+  <span className="navbar__brand-name">
+    DriveHub
+  </span>
+</NavLink>
 
         <nav className={`navbar__nav ${isMenuOpen ? "is-open" : ""}`}>
           <NavLink to="/" end onClick={closeMenu}>
