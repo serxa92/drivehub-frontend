@@ -4,15 +4,20 @@ import Home from "./pages/Home/Home";
 import CarDetail from "./pages/CarDetail/CarDetail";
 import Contact from "./pages/Contact/Contact";
 import Favorites from "./pages/Favorites/Favorites";
+import Navbar from "./components/Navbar/Navbar";
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/cars/:id" element={<CarDetail />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/favorites" element={<Favorites />} />
-    </Routes>
+    <>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cars/:id" element={<CarDetail />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/favorites" element={<Favorites />} />
+      </Routes>
+    </>
   );
 };
 
