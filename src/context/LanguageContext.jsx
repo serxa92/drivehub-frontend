@@ -84,6 +84,13 @@ const translations = {
     favoritesEmptyTitle: "No favorite cars yet",
     favoritesEmptyText:
       "Start exploring the catalog and save the cars that catch your attention.",
+    searchMileage: "Mileage",
+    anyMileage: "Any mileage",
+    clearFilters: "Clear filters",
+    resultsFound: "results found",
+    noResultsTitle: "No cars found",
+    noResultsText:
+      "Try changing your filters to discover more available vehicles.",
   },
 
   es: {
@@ -167,6 +174,13 @@ const translations = {
     favoritesEmptyTitle: "Aún no tienes coches favoritos",
     favoritesEmptyText:
       "Explora el catálogo y guarda los vehículos que te llamen la atención.",
+    searchMileage: "Kilometraje",
+    anyMileage: "Cualquier kilometraje",
+    clearFilters: "Limpiar filtros",
+    resultsFound: "resultados encontrados",
+    noResultsTitle: "No se encontraron coches",
+    noResultsText:
+      "Prueba a cambiar los filtros para descubrir más vehículos disponibles.",
   },
 };
 

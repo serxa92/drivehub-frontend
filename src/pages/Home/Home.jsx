@@ -1,22 +1,46 @@
+import { useMemo, useState } from "react";
 import { useLanguage } from "../../context/LanguageContext";
 import { useCars } from "../../hooks/useCars";
-import { getCarImage } from "../../utils/carImages";
-import { capitalize } from "../../utils/capitalize";
 import CarCard from "../../components/CarCard/CarCard";
-import Contact from "../Contact/Contact";
 import Loader from "../../components/Loader/Loader";
+import { capitalize } from "../../utils/capitalize";
 import "./Home.css";
 
 const Home = () => {
   const { t } = useLanguage();
   const { cars, loading, error } = useCars();
 
+  const [brandFilter, setBrandFilter] = useState("");
+  const [yearFilter, setYearFilter] = useState("");
+  const [mileageFilter, setMileageFilter] = useState("");
+
+  const brands = useMemo(() => {
+    return [...new Set(cars.map((car) => car.brand))].sort();
+  }, [cars]);
+
+  const filteredCars = useMemo(() => {
+    return cars.filter((car) => {
+      const brandMatch = !brandFilter || car.brand === brandFilter;
+      const yearMatch = !yearFilter || car.year >= Number(yearFilter);
+      const mileageMatch =
+        !mileageFilter || car.mileage <= Number(mileageFilter);
+
+      return brandMatch && yearMatch && mileageMatch;
+    });
+  }, [cars, brandFilter, yearFilter, mileageFilter]);
+
+  const clearFilters = () => {
+    setBrandFilter("");
+    setYearFilter("");
+    setMileageFilter("");
+  };
+
   if (loading) {
     return <Loader text={t.loadingCars} />;
   }
 
   if (error) {
-    return <Loader text={t.loadingCarsError} />;
+    return <p style={{ padding: "2rem" }}>{error}</p>;
   }
 
   return (
@@ -29,40 +53,55 @@ const Home = () => {
 
           <p>{t.heroText}</p>
 
-          <form className="search-panel">
+          <div className="search-panel">
             <div className="search-panel__field">
               <label>{t.searchBrand}</label>
-              <select>
-                <option>{t.allBrands}</option>
-                <option>BMW</option>
-                <option>Audi</option>
-                <option>Volkswagen</option>
-                <option>Mercedes</option>
-              </select>
-            </div>
+              <select
+                value={brandFilter}
+                onChange={(e) => setBrandFilter(e.target.value)}
+              >
+                <option value="">{t.allBrands}</option>
 
-            <div className="search-panel__field">
-              <label>{t.searchMaxPrice}</label>
-              <select>
-                <option>{t.anyPrice}</option>
-                <option>20.000€</option>
-                <option>40.000€</option>
-                <option>60.000€</option>
+                {brands.map((brand) => (
+                  <option key={brand} value={brand}>
+                    {capitalize(brand)}
+                  </option>
+                ))}
               </select>
             </div>
 
             <div className="search-panel__field">
               <label>{t.searchYear}</label>
-              <select>
-                <option>{t.anyYear}</option>
-                <option>2020+</option>
-                <option>2015+</option>
-                <option>2010+</option>
+              <select
+                value={yearFilter}
+                onChange={(e) => setYearFilter(e.target.value)}
+              >
+                <option value="">{t.anyYear}</option>
+                <option value="2024">2024+</option>
+                <option value="2020">2020+</option>
+                <option value="2015">2015+</option>
+                <option value="2010">2010+</option>
               </select>
             </div>
 
-            <button type="submit">{t.searchCars}</button>
-          </form>
+            <div className="search-panel__field">
+              <label>{t.searchMileage}</label>
+              <select
+                value={mileageFilter}
+                onChange={(e) => setMileageFilter(e.target.value)}
+              >
+                <option value="">{t.anyMileage}</option>
+                <option value="50000">50.000 km</option>
+                <option value="100000">100.000 km</option>
+                <option value="150000">150.000 km</option>
+                <option value="200000">200.000 km</option>
+              </select>
+            </div>
+
+            <button type="button" onClick={clearFilters}>
+              {t.clearFilters}
+            </button>
+          </div>
 
           <div className="hero__benefits">
             <article>
@@ -96,12 +135,12 @@ const Home = () => {
 
           <article className="featured-card">
             <span>{t.featured}</span>
-            <h2>Porsche Panamera Turbo</h2>
-            <p>2019 · 38.500 km · 550 cv</p>
+            <h2>Volkswagen Golf GTI 35 Edition</h2>
+            <p>2011 · 160.000 km · 310 cv</p>
 
             <div className="featured-card__bottom">
-              <strong>123.000€</strong>
-              <a href="/cars/1">{t.viewDetails}</a>
+              <strong>Available</strong>
+              <a href="#cars">{t.viewDetails}</a>
             </div>
           </article>
         </div>
@@ -109,15 +148,31 @@ const Home = () => {
 
       <section className="recent">
         <div className="recent__header">
-          <span>{t.recentlyAdded}</span>
+          <div>
+            <span>{t.recentlyAdded}</span>
+            <p>
+              {filteredCars.length} {t.resultsFound}
+            </p>
+          </div>
+
           <a href="#cars">{t.viewAllCars}</a>
         </div>
 
-        <div className="car-grid" id="cars">
-          {cars.map((car) => (
-            <CarCard key={car._id} car={car} />
-          ))}
-        </div>
+        {filteredCars.length === 0 ? (
+          <div className="no-results">
+            <h2>{t.noResultsTitle}</h2>
+            <p>{t.noResultsText}</p>
+            <button type="button" onClick={clearFilters}>
+              {t.clearFilters}
+            </button>
+          </div>
+        ) : (
+          <div className="car-grid" id="cars">
+            {filteredCars.map((car) => (
+              <CarCard key={car._id} car={car} />
+            ))}
+          </div>
+        )}
       </section>
     </section>
   );

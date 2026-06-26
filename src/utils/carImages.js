@@ -19,6 +19,8 @@ export const carImages = {
     "https://static.vecteezy.com/system/resources/previews/020/336/704/non_2x/honda-logo-honda-icon-free-free-vector.jpg",
   seat:
     "https://brandemia.org/contenido/subidas/2014/03/logo_principal_seat.jpg",
+    kia:
+    "https://motor.flexicar.es/wp-content/uploads/2024/11/logo-kia-kn-1.jpg",
   default:
     "https://images.unsplash.com/photo-1557053964-937650b63311?q=80&w=1297&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 };
